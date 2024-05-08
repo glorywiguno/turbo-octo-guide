@@ -1,0 +1,16 @@
+:root,
+:root:not([data-theme="dark"]) {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  --pico-primary: #286ACA;
+  --pico-primary-background: #286ACA;
+  --theme-primary-light: #EAF2FA;
+  /* --pico-primary-underline: rgba(189, 60, 19, 0.5);
+  --pico-primary-hover: #942d0d;
+  --pico-primary-hover-background: #bd3c13;
+  --pico-primary-focus: rgba(244, 93, 44, 0.5);
+  --pico-primary-inverse: #fff; */
+}

@@ -1,0 +1,56 @@
+.usersList {
+  padding: 0;
+  margin:  0;
+  list-style-type: none;
+}
+
+.usersList__item {
+  display: block;
+  list-style: none;
+}
+
+.usersList__item:not(:last-child) {
+  margin-bottom: 1.1rem;
+}
+
+
+.minimalProfileCard {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.minimalProfileCard__avatar {
+  padding: 0.5rem;
+}
+
+.minimalProfileCard__avatar.minimalProfileCard__avatar--text {
+  --avatar-text-size: 1.1rem;
+  --avatar-padding: 0.6rem;
+
+  padding: var(--avatar-padding);
+  min-width: calc(var(--avatar-text-size) + 2 *var(--avatar-padding));
+  border-radius: 0.3rem;
+  background-color: var(--theme-primary-light);
+  color: var(--pico-primary);
+  font-size: var(--avatar-text-size);
+  line-height: 1;
+  text-align: center;
+}
+
+.minimalProfileCard__content {
+  font-size: 1rem;
+  color: #000;
+}
+
+.minimalProfileCard__name {
+  color: inherit;
+  font-size: 1em;
+}
+
+.minimalProfileCard__type {
+  opacity: 0.5;
+  color: inherit;
+  font-size: 0.78em;
+}
