@@ -1,20 +1,24 @@
-.radioGroup__choice {
-  padding: 0.7rem 0.9rem;
-  border-radius: 0.4rem;
+.radioGroup {
+  &__choice {
+    padding: 0.7rem 0.9rem;
+    border-radius: 0.4rem;
+
+    > label {
+      margin-bottom: 0;
+      color: var(--ui-element-color);
+
+    }
+  }
+
+  &__choice--selected {
+    background-color: var(--theme-primary-light);
+  }
+
+  input[type="radio"]:checked {
+    background-color: var(--pico-primary-border);
+    border-color: var(--theme-primary-light);
+    box-shadow: 0 0 0px 0.05rem var(--pico-primary-border);
+    border-width: 0.25rem;
+  }
 }
 
-.radioGroup__choice > label {
-  margin-bottom: 0;
-}
-
-
-.radioGroup__choice.radioGroup__choice--selected {
-  background-color: var(--theme-primary-light);
-}
-
-.radioGroup input[type="radio"]:checked {
-  background-color: var(--pico-primary-border);
-  border-color: var(--pico-primary-inverse);
-  box-shadow: 0 0 0px 0.05rem var(--pico-primary-border);
-  border-width: 0.25rem;
-}

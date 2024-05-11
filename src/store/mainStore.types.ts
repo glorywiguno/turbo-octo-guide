@@ -8,7 +8,7 @@ export interface IMainStoreState {
 
 export interface IMainStore extends IMainStoreState {
   setUsers: (val: IUserData[]) => void;
-  setUserTypeFilterType: (val: EUserType) => void;
+  setUserTypeFilter: (val: EUserType) => void;
   setIsLoading: (val: boolean) => void;
 }
 

@@ -1,9 +1,11 @@
 export enum EUserType {
-  Admin = 'admin',
-  Manager = 'manager'
+  Admin = 'ADMIN',
+  Manager = 'MANAGER'
 }
 
 export interface IUserData {
   name: string;
-  type: EUserType;
+  role: EUserType;
+  id: string;
+  email: string;
 }

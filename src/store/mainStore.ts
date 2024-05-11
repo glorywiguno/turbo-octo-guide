@@ -12,7 +12,7 @@ const useMainStore = create<IMainStore>()((set)=> ({
   ...initialState,
   setIsLoading: (val: boolean) => set(() => ({ isLoading: val})),
   setUsers: (val: IUserData[]) => set(() => ({ users: val})) ,
-  setUserTypeFilterType: (val: EUserType) => set(() => ({userTypeFilter: val}))
+  setUserTypeFilter: (val: EUserType) => set(() => ({userTypeFilter: val}))
 }));
 
 export default useMainStore;
