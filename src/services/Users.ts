@@ -1,7 +1,7 @@
 import { IUserData } from '../interfaces/IUsers.ts';
-
+import { GRAPHQL_API_KEY } from '../utils/constants';
 export interface IUserServiceProps {
-  url: string; 
+  url: string;
 }
 
 const DEFAULT_HEADER = {
@@ -18,31 +18,64 @@ export default class UserService {
   }
 
   public async fetchUsers(): Promise<IUserData[]> {
-    try {
-      const res = await fetch(this.url, {
-        method: 'POST',
-        headers: {
-          ...DEFAULT_HEADER,
-          'x-api-key': import.meta.env['VITE_GRAPHQL_API_KEY']
-        },
-        body: JSON.stringify({
-          query: `
-            query ListZellerCustomers {
-              listZellerCustomers {
-                items {
-                  email id name role
-                }
+    const res = await fetch(this.url, {
+      method: 'POST',
+      headers: {
+        ...DEFAULT_HEADER,
+        'x-api-key': GRAPHQL_API_KEY
+      },
+      body: JSON.stringify({
+        query: `
+          query ListZellerCustomers {
+            listZellerCustomers {
+              items {
+                email
+                id
+                name
+                role
               }
             }
-          `
-        })
-      });
+          }
+        `
+      })
+    });
 
-      const jsonRes = await res.json();
-      return jsonRes.data?.listZellerCustomers?.items || [];
-    } catch(e) {
-      console.error(e);
-      return [];
+    const jsonRes = await res.json();
+
+    return jsonRes.data?.listZellerCustomers?.items || [];
+  }
+
+
+  public async fetchUsersByRole(role: string): Promise<IUserData[]> {
+    const res = await fetch(this.url, {
+      method: 'POST',
+      headers: {
+        ...DEFAULT_HEADER,
+        'x-api-key': GRAPHQL_API_KEY
+      },
+      body: JSON.stringify({
+        query: `
+          query ListZellerCustomers {
+            listZellerCustomers {
+              items {
+                email
+                id
+                name
+                role
+              }
+            }
+          }
+        `
+      })
+    });
+
+    const jsonRes = await res.json();
+    const users = jsonRes.data?.listZellerCustomers?.items
+
+    if (users && Array.isArray(users)) {
+      return users.filter((item: IUserData) => item.role === role);
     }
+
+    return []
   }
 }
